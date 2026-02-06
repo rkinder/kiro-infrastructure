@@ -1,0 +1,35 @@
+# Ignore patterns
+.DS_Store
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Bun
+node_modules/
+bun.lockb
+
+# Test artifacts
+*.test.log
+test-output/
+
+# Backup files
+*.backup
+*.bak
+
+# Environment
+.env
+.env.local
+
+# Build artifacts
+dist/
+build/
+*.js.map
+
+# Logs
+*.log
+logs/
+
+# OS
+Thumbs.db
