@@ -1,0 +1,12 @@
+{
+  "name": "kiro-hooks-tests",
+  "version": "0.2.0",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "fast-check": "^3.15.0"
+  },
+  "scripts": {
+    "test": "bun test"
+  }
+}
