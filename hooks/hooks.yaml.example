@@ -1,0 +1,7 @@
+telos_path: ~/.kiro/context/telos
+backup_path: ~/.kiro/backups
+journal_path: ~/.kiro/journals
+log_path: ~/.kiro/logs
+
+security:
+  enabled: true
