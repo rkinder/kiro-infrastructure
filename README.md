@@ -8,8 +8,16 @@ An adaptation of [danielmiessler/PAI](https://github.com/danielmiessler/PAI) (Pe
 
 ## Project Status
 
-**Current:** v0.2 - Hook system implemented and tested ✅
-**Next:** v0.3 - Integration and optimization
+**Current:** v0.3 - Memory System complete ✅  
+**Next:** v0.4 - CORE Skill
+
+### Completed Versions
+
+- **v0.1** - TELOS Context System ✅
+- **v0.2** - Hook System ✅
+- **v0.3** - Memory System ✅ (NEW!)
+
+See [docs/V0.3_COMPLETE.md](docs/V0.3_COMPLETE.md) for details.
 
 ## Quick Start
 
@@ -18,6 +26,24 @@ An adaptation of [danielmiessler/PAI](https://github.com/danielmiessler/PAI) (Pe
 cp -r releases/v0.1/context/telos ~/.kiro/context/
 cp -r releases/v0.1/skills/telos ~/.kiro/skills/
 chmod +x ~/.kiro/skills/telos/tools/update-telos.ts
+
+# Install hooks
+cp -r hooks ~/.kiro/
+
+# Configure agent to load TELOS context
+# Add to ~/.kiro/agents/default.json (or your agent config):
+# "hooks": {
+#   "agentSpawn": [
+#     {
+#       "command": "/home/YOUR_USER/.kiro/hooks/LoadContext.hook.ts"
+#     }
+#   ]
+# }
+
+# Set default agent in ~/.kiro/settings/cli.json:
+# {
+#   "chat.defaultAgent": "default"
+# }
 
 # Test it
 bun ~/.kiro/skills/telos/tools/update-telos.ts BOOKS.md \

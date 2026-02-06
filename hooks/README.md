@@ -9,7 +9,7 @@ TypeScript-based hook system for Kiro CLI, adapted from PAI architecture.
 cp -r hooks ~/.kiro/
 
 # Copy configuration
-cp hooks/hooks.yaml.example ~/.kiro/config/hooks.yaml
+cp hooks/hooks.yaml.example ~/.kiro/hooks/hooks.yaml
 
 # Make hooks executable
 chmod +x ~/.kiro/hooks/*.hook.ts
@@ -18,15 +18,37 @@ chmod +x ~/.kiro/hooks/*.hook.ts
 mkdir -p ~/.kiro/{backups/telos,journals,logs}
 ```
 
+## Configuration
+
+Hooks must be registered in agent configuration files (`~/.kiro/agents/*.json`).
+
+Example agent config with LoadContext hook:
+
+```json
+{
+  "name": "default",
+  "tools": ["*"],
+  "hooks": {
+    "agentSpawn": [
+      {
+        "command": "~/.kiro/hooks/LoadContext.hook.ts"
+      }
+    ]
+  }
+}
+```
+
+See [Kiro CLI Hooks Documentation](https://kiro.dev/docs/cli/hooks/) for details.
+
 ## Hooks
 
 ### LoadContext.hook.ts
-**Trigger**: SessionStart  
+**Trigger**: agentSpawn  
 **Purpose**: Auto-loads TELOS context files at conversation start
 
 ```bash
 # Test manually
-bun ~/.kiro/hooks/LoadContext.hook.ts
+echo '{"hook_event_name":"agentSpawn","cwd":"'$(pwd)'"}' | bun ~/.kiro/hooks/LoadContext.hook.ts
 ```
 
 ### SecurityValidator.hook.ts

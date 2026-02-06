@@ -67,4 +67,13 @@ class LoadContextHook extends BaseHook {
 const input = parseInput();
 const hook = new LoadContextHook(input);
 const result = await hook.execute();
-console.log(JSON.stringify(result));
+
+// For agentSpawn hooks, output context directly to STDOUT
+// Kiro adds STDOUT to agent context when exit code is 0
+if (result.data) {
+  console.log(result.data);
+  process.exit(0);
+} else {
+  console.error(result.message || 'Failed to load TELOS context');
+  process.exit(1);
+}

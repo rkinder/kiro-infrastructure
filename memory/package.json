@@ -1,0 +1,16 @@
+{
+  "name": "kiro-memory-system",
+  "version": "0.3.0",
+  "type": "module",
+  "dependencies": {
+    "vectra": "^0.12.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.0.0"
+  },
+  "scripts": {
+    "test": "bun test",
+    "process": "bun tools/process-journals.ts",
+    "query": "bun tools/query-memory.ts",
+    "rate": "bun tools/rate-memory.ts",
+    "stats": "bun tools/stats.ts"
+  }
+}
