@@ -1,0 +1,10 @@
+# CORE User Configuration
+# Copy this file to config.yaml and customize as needed
+
+# Example overrides:
+# responseFormat:
+#   voiceWordLimit: 200
+#   includeStoryExplanation: false
+#
+# telos:
+#   autoLoad: false

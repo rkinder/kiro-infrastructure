@@ -1,0 +1,18 @@
+# CORE System Configuration
+# Do not modify this file directly - use user/config.yaml for overrides
+
+responseFormat:
+  voiceWordLimit: 150
+  includeStoryExplanation: true
+  
+telos:
+  autoLoad: true
+  required: false
+  
+skills:
+  autoDiscover: true
+  loadTimeout: 5000
+  
+security:
+  validateInputs: true
+  sanitizeOutputs: true
